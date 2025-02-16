@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PunctualVideo - Servicii Profesionale de Filmare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #333;
+            --accent-color: #e0a500; /* Revenire la auriu */
+            --text-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-text span:first-of-type {
+            color: var(--text-color);
+        }
+
+        .logo-text span:last-of-type {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite alternate;
+            font-weight: 600;
+        }
+
+        .hero-content h1 span:first-of-type {
+            color: var(--text-color);
+        }
+
+        .hero-content h1 span:last-of-type {
+            color: var(--accent-color);
+            margin-left: 0;
+        }
+
+        .hero-content p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--accent-color);
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 3px rgba(255, 255, 255, 0.3), 0 0 6px rgba(224, 165, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(224, 165, 0, 0.7);
+            }
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(224, 165, 0, 0.1));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            background-color: var(--secondary-color);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            margin: 1rem 0;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .portfolio-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(5px);
+            transition: filter 0.3s ease;
+        }
+
+        .portfolio-item:hover iframe {
+            filter: blur(0);
+        }
+
+        .portfolio-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            transition: opacity 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+        }
+
+        .portfolio-item:hover .portfolio-title {
+            opacity: 0;
+        }
+
+        @keyframes loading {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-content p {
+                font-size: 1.4rem;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(224, 165, 0, 0.4);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent-color);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+
+        .client-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .client-name {
+            font-weight: 600;
+        }
+
+        .client-company {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Ajustăm logo-ul din navbar */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem; /* Reducem spațiul dintre logo și text */
+        }
+
+        .navbar .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        /* Stiluri pentru VIDEO cu diafragmă */
+        .hero-content h1 .video-text {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .hero-content h1 .aperture-o {
+            height: 0.85em;
+            width: 0.85em;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0.05em 0 0 0;
+            filter: blur(0.5px);
+            animation: aperture-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes aperture-glow {
+            from {
+                filter: blur(0.5px) brightness(1);
+            }
+            to {
+                filter: blur(1px) brightness(1.2);
+            }
+        }
+
+        /* Ștergem stilurile pentru big-logo care nu mai sunt necesare */
+        .big-logo {
+            display: none;
+        }
+
+        /* Stiluri pentru butoanele sociale */
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-button {
+            background-color: #25D366;
+        }
+
+        .whatsapp-button:hover {
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .instagram-button {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .instagram-button:hover {
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+        }
+
+        /* Stiluri pentru elementele decorative cu echipament */
+        .equipment-decoration {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3; /* Opacitate finală */
+            filter: blur(0.5px);
+            /* Pentru a activa tranzițiile, decomentează următoarea linie: */
+            /* transition: all 0.8s ease-out; */
+            
+            /* Poziția inițială - decomentează pentru animații: */
+            /* transform: translateX(-100px); */
+        }
+
+        .drone-right {
+            right: 5px;
+            top: 1600px;
+            width: 700px;
+            height: auto;
+            /* Pentru animație din dreapta, decomentează: */
+            /* transform: translateX(100px); */
+        }
+
+        .camera-left {
+            left: 50px;
+            top: 2200px;
+            width: 650px;
+            height: auto;
+            /* Pentru animație din stânga, decomentează: */
+            /* transform: translateX(-100px); */
+        }
+
+        .gopro-right {
+            right: 100px;
+            top: 3000px;
+            width: 300px;
+            height: auto;
+            /* Pentru animație din dreapta, decomentează: */
+            /* transform: translateX(100px); */
+        }
+
+        /* Clase pentru animație - decomentează pentru a activa: <img src="pct-galben.png" alt="O" class="aperture-o"> */
+        /*.equipment-decoration.visible {
+            opacity: 0.4;
+            transform: translateX(0);
+        }*/
+
+        @media (max-width: 1400px) {
+            .equipment-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="sony-fx6.png" alt="" class="equipment-decoration camera-left" aria-hidden="true">
+    <img src="dji-mavic3.png" alt="" class="equipment-decoration drone-right" aria-hidden="true">
+    <img src="gopro.png" alt="" class="equipment-decoration gopro-right" aria-hidden="true">
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo-galben.png" alt="PunctualVideo Logo">
+                <div class="logo-text">
+                    <span>Punctual</span><span>Video</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Acasă</a>
+                <a href="#services">Servicii</a>
+                <a href="#portfolio">Portofoliu</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="scroll-indicator"></div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="big-logo">
+                <img src="logo-galben.png" alt="PunctualVideo Logo">
+            </div>
+            <h1>
+                <span>Punctual</span>
+                <span class="video-text">VIDEO</span> 
+            </h1>
+            <p>Surprindem momentele punctuale</p>
+            <a href="#contact" class="cta-button">Contactează-ne</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="section-title">
+            <h2>Despre Noi</h2>
+        </div>
+        <p>Echipa noastră este specializată în realizarea fotografiilor profesionale și a conținutului video de tip reclamă sau prezentare, pentru etape importante din progresul unui șantier, tehnologii inovatoare, identificare suprafețe mari de teren, publicitate imobiliară sau evenimente private din viața dvs.</p>
+        <p>Suntem implicați 100% în cadrul unui proiect, stabilim împreună momentele importante și etapele filmării, vă oferim un preț avantajos în raport cu calitatea și suntem punctuali atât la momentul filmării cât și în respectarea timpilor de livrare a produsului final.</p>
+    </section>
+
+    <section id="services" class="section">
+        <div class="section-title">
+            <h2>Serviciile Noastre</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Editare Video</h3>
+                <p>Servicii de editare video profesionale utilizând cele mai noi softuri de procesare video pentru a crea conținut video de calitate.</p>
+            </div>
+            <div class="service-card">
+                <h3>Filmare de la Sol</h3>
+                <p>Servicii complete de producție video realizate cu aparatură de ultimă generație.</p>
+            </div>
+            <div class="service-card">
+                <h3>Filmare cu Drona</h3>
+                <p>Filmări aeriene cu drone profesionale pentru a oferi o perspectivă unică proiectelor dumneavoastră.</p>
+            </div>
+            <div class="service-card">
+                <h3>Fotografii</h3>
+                <p>Servicii profesionale de fotografiere, atât aeriene cât și de la sol. "O fotografie bună spune cât o mie de cuvinte"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="section-title">
+            <h2>Portofoliu</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-title">WeBuild</div>
+                <iframe src="https://www.youtube.com/embed/RCtfJAU2Bag" title="WeBuild" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Excavator LiuGong</div>
+                <iframe src="https://www.youtube.com/embed/4diGipRG7Kg" title="Excavator LiuGong" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Pod peste Mures</div>
+                <iframe src="https://www.youtube.com/embed/OloHcs1s8ZQ" title="Pod peste Mures" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Limite proprietate</div>
+                <iframe src="https://www.youtube.com/embed/SWFaAp_vD8I" title="Limite proprietate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Biserica 3 Insule Arad</div>
+                <iframe src="https://www.youtube.com/embed/s7-lrJ2YmDA" title="Biserica 3 Insule Arad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Deschidere Radna</div>
+                <iframe src="https://www.youtube.com/embed/lytbtB8XtOo" title="Deschidere Radna" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Rapa Rosie</div>
+                <iframe src="https://www.youtube.com/embed/ml35Pa45cto" title="Rapa Rosie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Cladire mentenanta</div>
+                <iframe src="https://www.youtube.com/embed/IylfdhvYrGw" title="Cladire mentenanta" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-title">Nunta traditionala</div>
+                <iframe src="https://www.youtube.com/embed/jq9a2IOFNGc" title="Nunta traditionala" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="section">
+        <div class="section-title">
+            <h2>Realizările Noastre</h2>
+        </div>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Proiecte Finalizate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Clienți Mulțumiți</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Județe Acoperite</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Ani de Experiență</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="section-title">
+            <h2>Ce Spun Clienții Noștri</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Echipa PunctualVideo a oferit servicii excepționale pentru proiectul nostru de construcții. Filmările aeriene au fost de înaltă calitate și au surprins perfect progresul lucrărilor."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Client" class="client-image">
+                    <div>
+                        <div class="client-name">Ioan Popescu</div>
+                        <div class="client-company">WeBuild România</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Am colaborat pentru mai multe evenimente private și de fiecare dată au livrat materiale video la cel mai înalt nivel. Recomand cu încredere!"</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Client" class="client-image">
+                    <div>
+                        <div class="client-name">Maria Ionescu</div>
+                        <div class="client-company">Event Planner</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Profesionalism, punctualitate și calitate - acestea sunt cuvintele care descriu cel mai bine serviciile PunctualVideo."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Client" class="client-image">
+                    <div>
+                        <div class="client-name">Andrei Mureșan</div>
+                        <div class="client-company">Dezvoltator Imobiliar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="section-title">
+            <h2>Contact</h2>
+        </div>
+        <div class="contact-info">
+            <p><strong>S.C. Mezidin Logistics S.R.L.</strong></p>
+            <p>📧 Email: mezidinlogistics@yahoo.com</p>
+            <p>📞 Telefon: 0740013808</p>
+            <p>🌍 Arie de acoperire: Alba, Arad, Cluj, Deva, Oradea, Sibiu, Timișoara</p>
+            <p>Pentru proiecte importante ne deplasăm oriunde în țară.</p>
+            
+            <div class="social-buttons">
+                <a href="https://wa.me/40740013808" class="social-button whatsapp-button" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+                <a href="https://instagram.com/arthur_popa" class="social-button instagram-button" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(26, 26, 26, 0.98)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            const windowScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (windowScroll / height) * 100;
+            scrollIndicator.style.width = `${scrolled}%`;
+        });
+
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Animație pentru numere în statistici
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start) + (obj.dataset.suffix || '');
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Observator pentru secțiunea de statistici
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.stat-number').forEach(stat => {
+                        const end = parseInt(stat.textContent);
+                        stat.textContent = '0';
+                        animateValue(stat, 0, end, 2000);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('#stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Adăugăm acest cod la scriptul existent
+        const equipmentObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '-100px'
+        });
+
+        document.querySelectorAll('.equipment-decoration').forEach(equipment => {
+            equipmentObserver.observe(equipment);
+        });
+    </script>
+</body>
+</html>
