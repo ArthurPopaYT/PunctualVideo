@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Punctual Video – Surprindem momentele punctuale. Oferim servicii complete de editare video, filmare de la sol și cu drona, plus fotografie profesională pentru șantiere, evenimente și imobiliare, cu sediul in Arad.">
     <title>PunctualVideo - Servicii Profesionale de Filmare</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -94,51 +93,128 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            overflow: hidden;
             padding: 0 2rem;
+        }
+        
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.3) contrast(1.2);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(20,20,30,0.8) 0%, rgba(10,10,20,0.95) 100%);
+            z-index: -1;
         }
 
         .hero-content {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s ease forwards;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
         }
 
         .hero-content h1 {
-            font-size: 4.5rem;
+            font-size: 7rem;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: glow 2s ease-in-out infinite alternate;
-            font-weight: 600;
+            letter-spacing: 5px;
+            font-weight: 700;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
-
-        .hero-content h1 span:first-of-type {
-            color: var(--text-color);
-        }
-
-        .hero-content h1 span:last-of-type {
-            color: var(--accent-color);
-            margin-left: 0;
-        }
-
+        
         .hero-content p {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             max-width: 800px;
-            margin: 0 auto;
-            color: var(--accent-color);
+            margin: 1.5rem auto 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+            letter-spacing: 1px;
         }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 3px rgba(255, 255, 255, 0.3), 0 0 6px rgba(224, 165, 0, 0.5);
-            }
-            to {
-                text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 12px rgba(224, 165, 0, 0.7);
-            }
+        
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(224, 165, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(224, 165, 0, 0.6);
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 5px 20px rgba(224, 165, 0, 0.2);
+        }
+        
+        .cta-button.secondary:hover {
+            color: var(--accent-color);
+            box-shadow: 0 8px 25px rgba(224, 165, 0, 0.3);
+            background: rgba(0,0,0,0.2);
         }
 
         .section {
@@ -298,25 +374,6 @@
             }
         }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(224, 165, 0, 0.4);
-        }
-
         .scroll-indicator {
             position: fixed;
             top: 0;
@@ -435,34 +492,45 @@
         }
 
         /* Stiluri pentru VIDEO cu diafragmă */
-        .hero-content h1 .video-text {
+        .hero-content h1 span:first-of-type {
+            color: var(--text-color);
+            text-shadow: 0 0 25px rgba(255,255,255,0.2);
+        }
+
+        .hero-content h1 span:last-of-type {
+            color: var(--accent-color);
             position: relative;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .hero-content h1 .aperture-o {
-            height: 0.85em;
-            width: 0.85em;
+            margin-left: 0.1em;
             display: inline-block;
-            vertical-align: middle;
-            margin: 0.05em 0 0 0;
-            filter: blur(0.5px);
-            animation: aperture-glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(224, 165, 0, 0.5);
         }
 
-        @keyframes aperture-glow {
-            from {
-                filter: blur(0.5px) brightness(1);
-            }
-            to {
-                filter: blur(1px) brightness(1.2);
-            }
+        .hero-content h1 span:last-of-type::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
         }
 
-        /* Ștergem stilurile pentru big-logo care nu mai sunt necesare */
-        .big-logo {
-            display: none;
+        /* Glow effect pentru zona hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: radial-gradient(circle at center, rgba(224, 165, 0, 0.15) 0%, transparent 70%);
+            z-index: 0;
+            animation: pulse 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         /* Stiluri pentru butoanele sociale */
@@ -558,27 +626,6 @@
             }
         }
     </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Punctual Video",
-  "url": "https://punctual.video",
-  "logo": "https://punctual.video/path/to/logo.png",
-  "description": "Punctual Video – Surprindem momentele punctuale. Oferim servicii de editare video, filmare de la sol și cu drona, precum și fotografie profesională pentru șantiere, evenimente și imobiliare.",
-  "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+40740013808",
-      "contactType": "customer service",
-      "areaServed": "RO",
-      "availableLanguage": "ro"
-  }],
-  "sameAs": [
-    "https://www.facebook.com/yourpage",
-    "https://www.instagram.com/yourprofile"
-  ]
-}
-</script>
 </head>
 <body>
     <img src="sony-fx6.png" alt="" class="equipment-decoration camera-left" aria-hidden="true">
@@ -605,16 +652,23 @@
     <div class="scroll-indicator"></div>
 
     <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-32809-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div id="particles-js" class="hero-particles"></div>
+        
         <div class="hero-content">
-            <div class="big-logo">
-                <img src="logo-galben.png" alt="PunctualVideo Logo">
-            </div>
             <h1>
                 <span>Punctual</span>
                 <span class="video-text">VIDEO</span> 
             </h1>
             <p>Surprindem momentele punctuale</p>
-            <a href="#contact" class="cta-button">Contactează-ne</a>
+            
+            <div class="cta-buttons">
+                <a href="#portfolio" class="cta-button">Vezi portofoliu</a>
+                <a href="#contact" class="cta-button secondary">Contactează-ne</a>
+            </div>
         </div>
     </section>
 
@@ -762,7 +816,7 @@
         </div>
         <div class="contact-info">
             <p><strong>S.C. Mezidin Logistics S.R.L.</strong></p>
-            <p>📧 Email: office@punctual.video</p>
+            <p>📧 Email: mezidinlogistics@yahoo.com</p>
             <p>📞 Telefon: 0740013808</p>
             <p>🌍 Arie de acoperire: Alba, Arad, Cluj, Deva, Oradea, Sibiu, Timișoara</p>
             <p>Pentru proiecte importante ne deplasăm oriunde în țară.</p>
@@ -896,6 +950,46 @@
 
         document.querySelectorAll('.equipment-decoration').forEach(equipment => {
             equipmentObserver.observe(equipment);
+        });
+    </script>
+
+    <!-- Add particles.js script before your closing body tag -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 1000 } },
+                color: { value: "#e0a500" },
+                opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1 } },
+                size: { value: 4, random: true, anim: { enable: true, speed: 3 } },
+                line_linked: { 
+                    enable: true, 
+                    distance: 150, 
+                    color: "#e0a500", 
+                    opacity: 0.3, 
+                    width: 1.5 
+                },
+                move: { 
+                    enable: true, 
+                    speed: 2, 
+                    direction: "none", 
+                    random: true, 
+                    out_mode: "out",
+                    attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                },
+                modes: {
+                    repulse: { distance: 100, duration: 0.4 },
+                    push: { particles_nb: 4 }
+                }
+            }
         });
     </script>
 </body>
