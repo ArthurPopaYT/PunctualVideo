@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
         :root {
             --primary-color: #1a1a1a;
             --secondary-color: #333;
-            --accent-color: #e0a500; /* Revenire la auriu */
+            --accent-color: #e0a500;
+            /* Revenire la auriu */
             --text-color: #ffffff;
         }
 
@@ -97,7 +99,7 @@
             overflow: hidden;
             padding: 0 2rem;
         }
-        
+
         .hero-video-bg {
             position: absolute;
             top: 0;
@@ -108,14 +110,14 @@
             z-index: -1;
             filter: brightness(0.3) contrast(1.2);
         }
-        
+
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(20,20,30,0.8) 0%, rgba(10,10,20,0.95) 100%);
+            background: linear-gradient(135deg, rgba(20, 20, 30, 0.8) 0%, rgba(10, 10, 20, 0.95) 100%);
             z-index: -1;
         }
 
@@ -135,18 +137,18 @@
             letter-spacing: 5px;
             font-weight: 700;
             line-height: 1;
-            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-        
+
         .hero-content p {
             font-size: 2.2rem;
             max-width: 800px;
             margin: 1.5rem auto 3rem;
             color: #ffffff;
-            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             letter-spacing: 1px;
         }
-        
+
         .hero-particles {
             position: absolute;
             top: 0;
@@ -156,14 +158,14 @@
             z-index: 0;
             opacity: 0.8;
         }
-        
+
         .cta-buttons {
             display: flex;
             gap: 2rem;
             justify-content: center;
             margin-top: 3rem;
         }
-        
+
         .cta-button {
             display: inline-block;
             padding: 1.2rem 2.5rem;
@@ -182,7 +184,7 @@
             overflow: hidden;
             z-index: 1;
         }
-        
+
         .cta-button:before {
             content: '';
             position: absolute;
@@ -190,31 +192,31 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: all 0.6s;
             z-index: -1;
         }
-        
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(224, 165, 0, 0.6);
         }
-        
+
         .cta-button:hover:before {
             left: 100%;
         }
-        
+
         .cta-button.secondary {
             background-color: transparent;
             color: var(--text-color);
             border: 2px solid var(--accent-color);
             box-shadow: 0 5px 20px rgba(224, 165, 0, 0.2);
         }
-        
+
         .cta-button.secondary:hover {
             color: var(--accent-color);
             box-shadow: 0 8px 25px rgba(224, 165, 0, 0.3);
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .section {
@@ -361,22 +363,22 @@
             .nav-links {
                 display: none;
             }
-            
+
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero-content h1 {
                 font-size: 3rem;
                 margin-bottom: 1rem;
                 letter-spacing: 2px;
             }
-            
+
             .hero-content p {
                 font-size: 1.2rem;
                 margin-bottom: 2rem;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
                 gap: 1rem;
@@ -384,37 +386,37 @@
                 max-width: 280px;
                 margin: 1.5rem auto 0;
             }
-            
+
             .cta-button {
                 width: 100%;
                 padding: 1rem;
                 font-size: 0.9rem;
                 text-align: center;
             }
-            
+
             .hero-particles {
                 opacity: 0.4;
             }
-            
+
             .hero-video-bg {
                 object-position: center;
             }
-            
+
             .hero {
                 padding: 0 1rem;
                 justify-content: center;
             }
-            
+
             .hero::before {
                 opacity: 0.3;
             }
         }
-        
+
         @media (max-width: 375px) {
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero-content p {
                 font-size: 1rem;
             }
@@ -529,7 +531,8 @@
         .navbar .logo {
             display: flex;
             align-items: center;
-            gap: 0.8rem; /* Reducem spațiul dintre logo și text */
+            gap: 0.8rem;
+            /* Reducem spațiul dintre logo și text */
         }
 
         .navbar .logo img {
@@ -540,7 +543,7 @@
         /* Stiluri pentru VIDEO cu diafragmă */
         .hero-content h1 span:first-of-type {
             color: var(--text-color);
-            text-shadow: 0 0 25px rgba(255,255,255,0.2);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
         }
 
         .hero-content h1 span:last-of-type {
@@ -575,8 +578,13 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         /* Stiluri pentru butoanele sociale */
@@ -624,11 +632,12 @@
             position: absolute;
             pointer-events: none;
             z-index: 0;
-            opacity: 0.3; /* Opacitate finală */
+            opacity: 0.3;
+            /* Opacitate finală */
             filter: blur(0.5px);
             /* Pentru a activa tranzițiile, decomentează următoarea linie: */
             /* transition: all 0.8s ease-out; */
-            
+
             /* Poziția inițială - decomentează pentru animații: */
             /* transform: translateX(-100px); */
         }
@@ -673,6 +682,7 @@
         }
     </style>
 </head>
+
 <body>
     <img src="sony-fx6.png" alt="" class="equipment-decoration camera-left" aria-hidden="true">
     <img src="dji-mavic3.png" alt="" class="equipment-decoration drone-right" aria-hidden="true">
@@ -699,18 +709,20 @@
 
     <section id="home" class="hero">
         <video autoplay muted loop playsinline class="hero-video-bg">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-32809-large.mp4" type="video/mp4">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-32809-large.mp4"
+                type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div id="particles-js" class="hero-particles"></div>
-        
+
         <div class="hero-content">
             <h1>
                 <span>Punctual</span>
-                <span class="video-text">VIDEO</span> 
+                <span class="video-text">VIDEO</span>
             </h1>
             <p>Surprindem momentele punctuale</p>
-            
+
             <div class="cta-buttons">
                 <a href="#portfolio" class="cta-button">Vezi portofoliu</a>
                 <a href="#contact" class="cta-button secondary">Contactează-ne</a>
@@ -722,8 +734,12 @@
         <div class="section-title">
             <h2>Despre Noi</h2>
         </div>
-        <p>Echipa noastră este specializată în realizarea fotografiilor profesionale și a conținutului video de tip reclamă sau prezentare, pentru etape importante din progresul unui șantier, tehnologii inovatoare, identificare suprafețe mari de teren, publicitate imobiliară sau evenimente private din viața dvs.</p>
-        <p>Suntem implicați 100% în cadrul unui proiect, stabilim împreună momentele importante și etapele filmării, vă oferim un preț avantajos în raport cu calitatea și suntem punctuali atât la momentul filmării cât și în respectarea timpilor de livrare a produsului final.</p>
+        <p>Echipa noastră este specializată în realizarea fotografiilor profesionale și a conținutului video de tip
+            reclamă sau prezentare, pentru etape importante din progresul unui șantier, tehnologii inovatoare,
+            identificare suprafețe mari de teren, publicitate imobiliară sau evenimente private din viața dvs.</p>
+        <p>Suntem implicați 100% în cadrul unui proiect, stabilim împreună momentele importante și etapele filmării, vă
+            oferim un preț avantajos în raport cu calitatea și suntem punctuali atât la momentul filmării cât și în
+            respectarea timpilor de livrare a produsului final.</p>
     </section>
 
     <section id="services" class="section">
@@ -733,7 +749,8 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Editare Video</h3>
-                <p>Servicii de editare video profesionale utilizând cele mai noi softuri de procesare video pentru a crea conținut video de calitate.</p>
+                <p>Servicii de editare video profesionale utilizând cele mai noi softuri de procesare video pentru a
+                    crea conținut video de calitate.</p>
             </div>
             <div class="service-card">
                 <h3>Filmare de la Sol</h3>
@@ -741,11 +758,13 @@
             </div>
             <div class="service-card">
                 <h3>Filmare cu Drona</h3>
-                <p>Filmări aeriene cu drone profesionale pentru a oferi o perspectivă unică proiectelor dumneavoastră.</p>
+                <p>Filmări aeriene cu drone profesionale pentru a oferi o perspectivă unică proiectelor dumneavoastră.
+                </p>
             </div>
             <div class="service-card">
                 <h3>Fotografii</h3>
-                <p>Servicii profesionale de fotografiere, atât aeriene cât și de la sol. "O fotografie bună spune cât o mie de cuvinte"</p>
+                <p>Servicii profesionale de fotografiere, atât aeriene cât și de la sol. "O fotografie bună spune cât o
+                    mie de cuvinte"</p>
             </div>
         </div>
     </section>
@@ -758,35 +777,51 @@
 
             <div class="portfolio-item">
                 <div class="portfolio-title">Excavator LiuGong</div>
-                <iframe src="https://www.youtube.com/embed/4diGipRG7Kg" title="Excavator LiuGong" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/4diGipRG7Kg" title="Excavator LiuGong" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Pod peste Mures</div>
-                <iframe src="https://www.youtube.com/embed/OloHcs1s8ZQ" title="Pod peste Mures" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/OloHcs1s8ZQ" title="Pod peste Mures" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Limite proprietate</div>
-                <iframe src="https://www.youtube.com/embed/SWFaAp_vD8I" title="Limite proprietate" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/SWFaAp_vD8I" title="Limite proprietate" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Biserica 3 Insule Arad</div>
-                <iframe src="https://www.youtube.com/embed/s7-lrJ2YmDA" title="Biserica 3 Insule Arad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/s7-lrJ2YmDA" title="Biserica 3 Insule Arad" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Deschidere Radna</div>
-                <iframe src="https://www.youtube.com/embed/lytbtB8XtOo" title="Deschidere Radna" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lytbtB8XtOo" title="Deschidere Radna" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Rapa Rosie</div>
-                <iframe src="https://www.youtube.com/embed/ml35Pa45cto" title="Rapa Rosie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/ml35Pa45cto" title="Rapa Rosie" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Cladire mentenanta</div>
-                <iframe src="https://www.youtube.com/embed/IylfdhvYrGw" title="Cladire mentenanta" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/IylfdhvYrGw" title="Cladire mentenanta" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
                 <div class="portfolio-title">Nunta traditionala</div>
-                <iframe src="https://www.youtube.com/embed/jq9a2IOFNGc" title="Nunta traditionala" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/jq9a2IOFNGc" title="Nunta traditionala" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -821,17 +856,19 @@
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p>"Echipa PunctualVideo a oferit servicii excepționale pentru proiectul nostru de construcții. Filmările aeriene au fost de înaltă calitate și au surprins perfect progresul lucrărilor."</p>
+                <p>"Echipa PunctualVideo a oferit servicii excepționale pentru proiectul nostru de construcții.
+                    Filmările aeriene au fost de înaltă calitate și au surprins perfect progresul lucrărilor."</p>
                 <div class="client-info">
                     <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Client" class="client-image">
                     <div>
                         <div class="client-name">Ioan Popescu</div>
-                        <div class="client-company">WeBuild România</div>
+                        <div class="client-company">Specialist Constructii</div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <p>"Am colaborat pentru mai multe evenimente private și de fiecare dată au livrat materiale video la cel mai înalt nivel. Recomand cu încredere!"</p>
+                <p>"Am colaborat pentru mai multe evenimente private și de fiecare dată au livrat materiale video la cel
+                    mai înalt nivel. Recomand cu încredere!"</p>
                 <div class="client-info">
                     <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Client" class="client-image">
                     <div>
@@ -841,7 +878,8 @@
                 </div>
             </div>
             <div class="testimonial-card">
-                <p>"Profesionalism, punctualitate și calitate - acestea sunt cuvintele care descriu cel mai bine serviciile PunctualVideo."</p>
+                <p>"Profesionalism, punctualitate și calitate - acestea sunt cuvintele care descriu cel mai bine
+                    serviciile PunctualVideo."</p>
                 <div class="client-info">
                     <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Client" class="client-image">
                     <div>
@@ -863,17 +901,19 @@
             <p>📞 Telefon: 0740013808</p>
             <p>🌍 Arie de acoperire: Alba, Arad, Cluj, Deva, Oradea, Sibiu, Timișoara</p>
             <p>Pentru proiecte importante ne deplasăm oriunde în țară.</p>
-            
+
             <div class="social-buttons">
                 <a href="https://wa.me/40740013808" class="social-button whatsapp-button" target="_blank">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/>
+                        <path
+                            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z" />
                     </svg>
                     WhatsApp
                 </a>
                 <a href="https://instagram.com/arthur_popa" class="social-button instagram-button" target="_blank">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>
                     Instagram
                 </a>
@@ -885,7 +925,7 @@
 
     <script>
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.style.background = 'rgba(26, 26, 26, 0.98)';
@@ -1006,18 +1046,18 @@
                 color: { value: "#e0a500" },
                 opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1 } },
                 size: { value: 4, random: true, anim: { enable: true, speed: 3 } },
-                line_linked: { 
-                    enable: true, 
-                    distance: 150, 
-                    color: "#e0a500", 
-                    opacity: 0.3, 
-                    width: 1.5 
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#e0a500",
+                    opacity: 0.3,
+                    width: 1.5
                 },
-                move: { 
-                    enable: true, 
-                    speed: 2, 
-                    direction: "none", 
-                    random: true, 
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
                     out_mode: "out",
                     attract: { enable: true, rotateX: 600, rotateY: 1200 }
                 }
@@ -1036,4 +1076,5 @@
         });
     </script>
 </body>
+
 </html>
