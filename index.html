@@ -5,14 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PunctualVideo - Servicii Profesionale de Filmare</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-color: #1a1a1a;
             --secondary-color: #333;
             --accent-color: #e0a500;
-            /* Revenire la auriu */
             --text-color: #ffffff;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #e0a500, #ffd700, #e0a500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
         }
 
         * {
@@ -220,7 +246,7 @@
         }
 
         .section {
-            padding: 5rem 2rem;
+            padding: 8rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             overflow: hidden;
@@ -680,6 +706,109 @@
                 display: none;
             }
         }
+
+        /* Styles for Photography Section - Masonry Premium Layout */
+        .photo-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .photo-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            break-inside: avoid;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 900px) {
+            .photo-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .photo-grid {
+                column-count: 1;
+            }
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1200px;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .close-lightbox:hover,
+        .close-lightbox:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -776,20 +905,22 @@
         <div class="portfolio-grid">
 
             <div class="portfolio-item">
-                <div class="portfolio-title">Excavator LiuGong</div>
-                <iframe src="https://www.youtube.com/embed/4diGipRG7Kg" title="Excavator LiuGong" frameborder="0"
+                <div class="portfolio-title">Aradul din Drona</div>
+                <iframe src="https://www.youtube.com/embed/kxyix_-_4sA" title="Aradul din Drona" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-title">Pod peste Mures</div>
-                <iframe src="https://www.youtube.com/embed/OloHcs1s8ZQ" title="Pod peste Mures" frameborder="0"
+                <div class="portfolio-title">Colegiul National Moise Nicoara</div>
+                <iframe src="https://www.youtube.com/embed/Oxdr92Uu6F4" title="Colegiul National Moise Nicoara"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-title">Limite proprietate</div>
-                <iframe src="https://www.youtube.com/embed/SWFaAp_vD8I" title="Limite proprietate" frameborder="0"
+                <div class="portfolio-title">Is Gen Z Actually Different?</div>
+                <iframe src="https://www.youtube.com/embed/OZZF1y2cla8" title="Is Gen Z Actually Different?"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -800,8 +931,8 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-title">Deschidere Radna</div>
-                <iframe src="https://www.youtube.com/embed/lytbtB8XtOo" title="Deschidere Radna" frameborder="0"
+                <div class="portfolio-title">Excavator LiuGong</div>
+                <iframe src="https://www.youtube.com/embed/4diGipRG7Kg" title="Excavator LiuGong" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -812,8 +943,8 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="portfolio-item">
-                <div class="portfolio-title">Cladire mentenanta</div>
-                <iframe src="https://www.youtube.com/embed/IylfdhvYrGw" title="Cladire mentenanta" frameborder="0"
+                <div class="portfolio-title">Limite proprietate</div>
+                <iframe src="https://www.youtube.com/embed/SWFaAp_vD8I" title="Limite proprietate" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
@@ -823,6 +954,74 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+        </div>
+    </section>
+
+    <section id="photography" class="section">
+        <div class="section-title">
+            <h2>Fotografie</h2>
+        </div>
+        <div class="photo-grid">
+            <!-- Nature / Scenic -->
+            <div class="photo-item"><img src="city-night-rome.jpg" alt="Noaptea în Oras - Roma" loading="lazy"></div>
+            <div class="photo-item"><img src="arch-rome.jpg" alt="Arhitectura Istorica - Arcul lui Constantin"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="white-flowers.jpg" alt="Natură și Detalii Florale" loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.15 (3).jpeg"
+                    alt="Castel și Lac - Fotografie Aeriană" loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.15 (4).jpeg" alt="Lebede pe Lac"
+                    loading="lazy"></div>
+
+            <!-- Concert / High Energy -->
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.14 (2).jpeg"
+                    alt="Concert Live - Lumini Scenă" loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.15 (2).jpeg" alt="Spectacol Laser"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-07-01 at 17.20.50.jpeg"
+                    alt="Scenă Albastră - Atmosferă" loading="lazy"></div>
+
+            <!-- Performance / Dance -->
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-17 at 22.22.42 (2).jpeg"
+                    alt="Dansatori Costum Albastru" loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-17 at 22.22.42 (3).jpeg" alt="Dans Contemporan"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-17 at 22.22.42.jpeg" alt="Grup Dansatori"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.14 (1).jpeg" alt="Dans de Societate"
+                    loading="lazy"></div>
+
+            <!-- Singers / Artists -->
+            <div class="photo-item"><img src="singer-female-white.jpg" alt="Solistă Vocală - Live" loading="lazy"></div>
+            <div class="photo-item"><img src="singer-male-red.jpg" alt="Solist Vocal - Portret" loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-16 at 22.22.02 (1).jpeg" alt="Solist Vocal"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-17 at 22.22.42 (1).jpeg" alt="Solistă Vocală"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-07-01 at 17.18.41.jpeg" alt="Artistă pe Scenă"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="portrait-suit-blue.jpg" alt="Portret Profesional" loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.14.jpeg" alt="Pianist" loading="lazy">
+            </div>
+
+            <!-- Bands / Wide Shots -->
+            <div class="photo-item"><img src="WhatsApp Image 2025-07-01 at 17.18.40.jpeg" alt="Formație Live"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-16 at 22.22.02.jpeg" alt="Ansamblu Scenă"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.15 (1).jpeg" alt="Atmosferă Public"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-12-17 at 15.17.15.jpeg" alt="Siluetă Artistică"
+                    loading="lazy"></div>
+
+            <!-- Events / TEDx -->
+            <div class="photo-item"><img src="WhatsApp Image 2025-09-14 at 15.42.23.jpeg" alt="Prezentare TEDx"
+                    loading="lazy"></div>
+            <div class="photo-item"><img src="WhatsApp Image 2025-09-14 at 15.44.05.jpeg" alt="Eveniment Corporate"
+                    loading="lazy"></div>
+
+            <!-- Moments -->
+            <div class="photo-item"><img src="WhatsApp Image 2025-03-16 at 22.10.49.jpeg" alt="Moment Emoționant"
+                    loading="lazy"></div>
         </div>
     </section>
 
@@ -1033,6 +1232,51 @@
 
         document.querySelectorAll('.equipment-decoration').forEach(equipment => {
             equipmentObserver.observe(equipment);
+        });
+
+        // Lightbox Script
+        const lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.className = 'lightbox';
+        document.body.appendChild(lightbox);
+
+        const lightboxImg = document.createElement('img');
+        lightboxImg.className = 'lightbox-content';
+        lightbox.appendChild(lightboxImg);
+
+        const closeBtn = document.createElement('span');
+        closeBtn.className = 'close-lightbox';
+        closeBtn.innerHTML = '&times;';
+        lightbox.appendChild(closeBtn);
+
+        document.querySelectorAll('.photo-item img').forEach(image => {
+            image.addEventListener('click', e => {
+                lightbox.style.display = 'flex';
+                // Prevent scrolling when lightbox is open
+                document.body.style.overflow = 'hidden';
+                lightboxImg.src = e.target.src;
+                lightboxImg.alt = e.target.alt;
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                closeLightbox();
+            }
         });
     </script>
 
